@@ -224,7 +224,7 @@ fn list_people(persons: &Vec<Person>) {
             for p in persons.iter() {
                 for dep in COMPANY_DEPARTMENTS {
                     if p.department.ends_with(dep) {
-                        people_to_show.entry(p.department.clone()).or_insert(vec![p.name.clone()]).push(p.name.clone());
+                        people_to_show.entry(p.department.clone()).or_insert(Vec::new()).push(p.name.clone());
                     }
                 }
             }
