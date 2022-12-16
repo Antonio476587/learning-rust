@@ -6,6 +6,8 @@ fn main() {
 
     let fib_number: i64 = get_fib_number();
 
+    // The first function 'f1' is inefficient with numbers above 40
+    // If you want to calculate numbers biggers than 40, comment the next line
     println!("{}", fi1(fib_number));
     println!("{}", fi2(fib_number));
     println!("{}", fi3(fib_number));
