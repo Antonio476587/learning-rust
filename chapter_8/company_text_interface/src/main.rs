@@ -67,7 +67,7 @@ fn main() {
                     persons.push(new_person.clone());
                     println!(
                         "\n{} has been added to {}\n",
-                        new_person.name.trim(),
+                        new_person.name,
                         new_person.department
                     );
                 } else {
@@ -76,6 +76,7 @@ fn main() {
                 }
             }
             Actions::List => list_people(&persons),
+            // If no action was selected, then continue
             Actions::None => continue,
         }
     }
@@ -145,6 +146,7 @@ fn create_placeholder_data(persons: &mut Vec<Person>) {
 }
 
 fn get_action() -> Actions {
+    // Predefined commands and actions
     let commands_and_actions: HashMap<u8, Actions> =
         HashMap::from([(1, Actions::Add), (2, Actions::List)]);
 
@@ -159,8 +161,10 @@ fn get_action() -> Actions {
         Err(_) => return Actions::None,
     };
 
+    // If no action was provided, return Action::None
     let act_to_return = commands_and_actions.get(&buf).unwrap_or(&Actions::None);
 
+    // Converting references to Actions
     match act_to_return {
         &Actions::Add => return Actions::Add,
         &Actions::List => return Actions::List,
@@ -175,6 +179,7 @@ fn create_people() -> Person {
         .read_line(&mut name)
         .expect("Failed to read line");
 
+    // This is to delete the new line character
     let name = String::from(&name[..name.len() - 1]);
 
     let department = list_and_get_department();
@@ -248,5 +253,6 @@ fn list_and_get_department() -> String {
         .read_line(&mut department)
         .expect("Failed to read line");
 
+    // This is to delete the new line character
     String::from(&department[..department.len() - 1])
 }
