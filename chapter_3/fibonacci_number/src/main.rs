@@ -57,6 +57,7 @@ fn fi3(number: i64) -> f32 {
         return (number as f32).into()
     }
 
+    // 1.61803398875 is the golden ratio or aureal number (φ or Φ )
     return (power(1.61803398875, number) - (power(1.0 - 1.61803398875, -number))) / 5.0_f32.sqrt()
 }
 
