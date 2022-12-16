@@ -1,6 +1,6 @@
 - - -
 
-## Excercise 1
+## Excercise 2
 
 + ### Generate the nth Fibonacci number.
 
