@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "my_box"
+name = "my_box_and_deref_trait"
 version = "0.1.0"
