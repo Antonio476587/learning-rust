@@ -11,8 +11,8 @@ fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
     let pool = ThreadPool::new(4);
 
-    /// If you want to test the drop trait, just put take(2) after listener.incomig()
-    /// Just like this listener.incoming().take(2) and send some requests
+    // If you want to test the drop trait, just put take(2) after listener.incomig()
+    // Just like this listener.incoming().take(2) and send some requests
     for stream in listener.incoming() {
         let stream = stream.unwrap();
 
